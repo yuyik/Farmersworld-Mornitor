@@ -1,0 +1,37 @@
+@import 'https://fonts.googleapis.com/css?family=Kodchasan|Prompt';
+
+body{
+    font-family: 'Kodchasan', sans-serif;
+}
+
+h1,h2,h3{
+    font-family: 'Prompt', sans-serif;
+}
+
+[data-theme="dark"] {
+  background-color: #111 !important;
+  color: #eee;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: #333 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #000 !important;
+}
+
+[data-theme="dark"] .bg-black {
+  background-color: #eee !important;
+}
+
+*,
+*::before,
+*::after {
+  /* box-sizing: border-box; // 1 */
+}
+
+
+
+
+

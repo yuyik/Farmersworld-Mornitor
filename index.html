@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="th" class="h-100">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Farmersworld Mornitor</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="js/dark-mode.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/wax.js"></script>
+	<script>
+
+
+	</script>
+	<style>
+		.card-img-top {
+			width: 80%;
+		}
+
+		p {
+			/* margin-top: 1rem; */
+			margin-bottom: 0rem;
+		}
+		
+
+	</style>
+	<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body class="bg-white text-center d-flex h-100">
+	<div class="container d-flex p-3 mx-auto flex-column">
+		<header class="mb-auto">
+			<h3 class="float-left">Farmersworld Mornitor</h3>
+			<nav class="nav justify-content-center float-right">
+				<div class="nav-link">
+
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="darkSwitch">
+						<label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+					</div>
+
+				</div>
+			</nav>
+		</header>
+
+		<p>
+			<font size='+2'>
+				<span class="badge bg-success">
+					USD : <span id="usd"></span> $ </br>
+					WAX : <span id="wax"></span> บาท </br>
+					Usd <span class="status" id="usd_change" ></span> % | Wax <span class="status1" id="wax_change"></span> %</br>
+				</span>&nbsp;
+				
+				<span class="badge bg-primary">
+					FWF : <span id="fwf"></span></br>
+					<span id="baht-fwf"></span> บาท </br>
+					<span id="usd-fwf"></span> usd
+				</span>&nbsp;
+
+				<span class="badge bg-primary">
+					FWW : <span id="fww"></span></br>
+					<span id="baht-fww"></span> บาท</br>
+					<span id="usd-fww"></span> usd
+				</span>&nbsp;
+
+				<span class="badge bg-primary">
+					FWG : <span id="fwg"></span></br>
+					<span id="baht-fwg"></span> บาท</br>
+					<span id="usd-fwg"></span> usd
+				</span>&nbsp;
+
+				<span class="badge bg-primary" style="background-color: #e91e63!important;">
+					<span>Rate Exchange</span></br>
+					<span id="fee"></span>%</br>
+					<span>Fee Rate</span>
+				</span>
+			</font>
+		</p>
+		
+		<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <iframe id="fwf_alcor" height="580"  width="100%" scrolling="no" style="display:block; margin:auto" src="https://wax.alcor.exchange/trade/fwf-farmerstoken_wax-eosio.token"></iframe>
+    </div>
+    <div class="col-sm">
+      <iframe id="fwf_alcor" height="580"   width="100%" scrolling="no" style="display:block; margin:auto" src="https://wax.alcor.exchange/trade/fww-farmerstoken_wax-eosio.token"></iframe>
+    </div>
+    <div class="col-sm">
+      <iframe id="fwf_alcor" height="580"   width="100%" scrolling="no" style="display:block; margin:auto" src="https://wax.alcor.exchange/trade/fwg-farmerstoken_wax-eosio.token"></iframe>
+    </div>
+  </div>
+</div>
+		
+		
+
+		<div class="row">
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=farmbuilding&template_id=298592&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/plot.png" class="card-img-top" alt="Farm Plot"></a>
+					<div class="card-body">
+						<h5 class="card-title">Farm Plot</h5>
+
+						<!-- <font size="+1"><b> -->
+								<!-- <p class="badge rounded-pill bg-success">ROI : <span id="roi-plot">?</span></p> -->
+							<!-- </b></font> -->
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-plot">ไม่มีขาย</span><span id="tool-plot-thb"></span>
+								<br />Craft : <span id="tool-plot-cf"></span><span id="tool-plot-cf-thb"></span>
+							</p>
+						</font>
+						<font size="-2">
+							<p class="card-text"><span id="profit-plot"></span><span id="profit-plot-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=plants&template_id=298595&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/barleyseed.png" class="card-img-top" alt="Barley Seed"></a>
+					<div class="card-body">
+						<h5 class="card-title">Barley Seed</h5>
+
+						<!-- <font size="+1"><b> -->
+								<!-- <p class="badge rounded-pill bg-success">ROI : <span id="roi-barleyseed">?</span></p> -->
+							<!-- </b></font> -->
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-barleyseed">ไม่มีขาย</span><span id="tool-barleyseed-thb"></span><br />Craft : <span id="tool-barleyseed-cf"></span><span id="tool-barleyseed-cf-thb"></span></p>
+						</font>
+						<font size="-2">
+							<p class="card-text"><span id="profit-barleyseed"></span><span id="profit-barleyseed-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=foods&template_id=318606&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/barley.png" class="card-img-top" alt="Barley"></a>
+					<div class="card-body">
+						<h5 class="card-title">Barley</h5>
+						<!-- <font size="+1"><b> -->
+								<!-- <p class="badge rounded-pill bg-success">ROI : <span id="roi-barley">?</span></p> -->
+							<!-- </b></font> -->
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-barley">ไม่มีขาย</span><span id="tool-barley-thb"></span>
+								<br />Ex. : <span id="tool-barley-cf"></span><span id="tool-barley-cf-thb"></span>
+							</p>
+						</font>
+
+						<!--	<font size="-1"><p class="card-text" style="color: deepskyblue;">รายจ่าย : </br>
+						<span id="cost-barley"></span><span id="cost-barley-thb"></span></font></p> 
+						
+						<font size="-1"><p class="card-text"style="color: aquamarine;">รายรับ : </br>
+						<span id="revenue-barley"></span><span id="revenue-barley-thb"></span></font></p> 
+						
+						<font size="-1"><p class="card-text"  style="color: darkorange;">กำไร : </br>
+						<span id="profit-barley"></span><span id="profit-barley-thb"></span></font></p>
+						
+						<input type="text" id="all-profit" class="form-control" style="text-align: center;" value=8>
+						<font size="+1"><p class="card-text"  style="color: darkorange;"><span id="all-profit-thb"></span></p></font> -->
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=plants&template_id=298596&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/cornseed.png" class="card-img-top" alt="Corn Seed"></a>
+					<div class="card-body">
+						<h5 class="card-title">Corn Seed</h5>
+
+						<!-- <font size="+1"><b> -->
+								<!-- <p class="badge rounded-pill bg-success">ROI : <span id="roi-cornseed">?</span></p> -->
+							<!-- </b></font> -->
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-cornseed">ไม่มีขาย</span><span id="tool-cornseed-thb"></span><br />Craft : <span id="tool-cornseed-cf"></span><span id="tool-cornseed-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-cornseed"></span><span id="profit-cornseed-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=foods&template_id=318607&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/corn.png" class="card-img-top" alt="Corn"></a>
+					<div class="card-body">
+						<h5 class="card-title">Corn</h5>
+						<!-- <font size="+1"><b> -->
+								<!-- <p class="badge rounded-pill bg-success">ROI : <span id="roi-corn">?</span></p> -->
+							<!-- </b></font> -->
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-corn">ไม่มีขาย</span><span id="tool-corn-thb"></span><br />Craft : <span id="tool-corn-cf"></span><span id="tool-corn-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-corn"></span><span id="profit-corn-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+		</div><br />
+		<h5>
+			<span class="badge badge-danger" style="border-radius: 0; line-height: 1; padding: .375rem .5625rem; ">
+				<font size="+1">
+					<p class="card-text">รายจ่าย ข้าว : <span id="cost-barley"></span><span id="cost-barley-thb"></span></p>
+				</font>
+				
+			</span>
+			<span class="badge badge-success" style="border-radius: 0; line-height: 1; padding: .375rem .5625rem; ">
+				<font size="+1">
+					<p class="card-text">รายรับ ข้าว : <span id="revenue-barley"></span><span id="revenue-barley-thb"></span>
+				</font>
+				</p>
+			</span>
+			<span class="badge badge-info" style="border-radius: 0; line-height: 1; padding: .375rem .5625rem; ">
+				<font size="+1">
+					<p class="card-text">กำไร ข้าว : <span id="profit-barley"></span><span id="profit-barley-thb"></span>
+				</font>
+				</p>
+			</span>
+
+			<!--	<span class="badge badge-warning form-inline" style="border-radius: 0; line-height: 1; padding: .375rem .5625rem; ">
+				<input type="text" id="all-profit" class="form-control w-25" style="text-align: center; height:18px" value=8>&nbsp;&nbsp;
+				<font size="+1"></input><span id="all-profit-thb"></span></font>
+			</span> 
+			<span class='form-check form-inline m-1'> -->
+			
+		</h5>
+<!------------------------------------- mod 8 ------------------------------------>	
+
+					<h4><span class="badge badge-warning">รายรับข้าว * ราคาทอง หัก 5 แล้ว / กำไร ยังไม่หัก ค่าบอท ค่าเช่า cpu </span></h4>
+					<br />
+<!------------------------------------------------------------------------->
+		<div class="row">
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=378691&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/asa.png" class="card-img-top" alt="Ancient Stone Axe"></a>
+					<div class="card-body">
+						<h6 class="card-title">Ancient Stone Axe</h6>
+
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-asa">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-asa">ไม่มีขาย</span><span id="tool-asa-thb"></span><br />Craft : <span id="tool-asa-cf"></span><span id="tool-asa-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-asa"></span><span id="profit-asa-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=260763&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/sa.png" class="card-img-top" alt="Stone Axe"></a>
+					<div class="card-body">
+						<h5 class="card-title">Stone Axe</h5>
+
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-sa">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-sa">ไม่มีขาย</span><span id="tool-sa-thb"></span><br />Craft : <span id="tool-sa-cf"></span><span id="tool-sa-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-sa"></span><span id="profit-sa-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203881&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/a.png" class="card-img-top" alt="Axe"></a>
+					<div class="card-body">
+						<h5 class="card-title">Axe</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-a">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-a">ไม่มีขาย</span><span id="tool-a-thb"></span><br />Craft : <span id="tool-a-cf"></span><span id="tool-a-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-a"></span><span id="profit-a-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203883&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/s.png" class="card-img-top" alt="Saw"></a>
+					<div class="card-body">
+						<h5 class="card-title">Saw</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-s">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-s">ไม่มีขาย</span><span id="tool-s-thb"></span><br />Craft : <span id="tool-s-cf"></span><span id="tool-s-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-s"></span><span id="profit-s-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<!-- </div> -->
+
+
+			<!-- <div class="row"> -->
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203886&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/cs.png" class="card-img-top" alt="Chain Saw"></a>
+					<div class="card-body">
+						<h5 class="card-title">Chain Saw</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-cs">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-cs">ไม่มีขาย</span><span id="tool-cs-thb"></span><br />Craft : <span id="tool-cs-cf"></span><span id="tool-cs-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-cs"></span><span id="profit-cs-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<div class="row">
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203887&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/fr.png" class="card-img-top" alt="Stone Axe"></a>
+					<div class="card-body">
+						<h5 class="card-title">Fishing Rod</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-fr">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-fr">ไม่มีขาย</span><span id="tool-fr-thb"></span><br />Craft : <span id="tool-fr-cf"></span><span id="tool-fr-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-fr"></span><span id="profit-fr-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203888&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/fn.png" class="card-img-top" alt="Axe"></a>
+					<div class="card-body">
+						<h5 class="card-title">Fishing Net</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-fn">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-fn">ไม่มีขาย</span><span id="tool-fn-thb"></span><br />Craft : <span id="tool-fn-cf"></span><span id="tool-fn-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-fn"></span><span id="profit-fn-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card bg-white" style="width: 12rem;">
+					<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203889&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/fb.png" class="card-img-top" alt="Saw"></a>
+					<div class="card-body">
+						<h5 class="card-title">Fishing Boat</h5>
+						<font size="+1"><b>
+								<p class="badge rounded-pill bg-success">ROI : <span id="roi-fb">?</span></p>
+							</b></font>
+						<font size="-1">
+							<p class="card-text">Ah. : <span id="tool-fb">ไม่มีขาย</span><span id="tool-fb-thb"></span><br />Craft : <span id="tool-fb-cf"></span><span id="tool-fb-cf-thb"></span></p>
+						</font>
+						<font size="-1">
+							<p class="card-text"><span id="profit-fb"></span><span id="profit-fb-thb"></span></p>
+						</font>
+					</div>
+				</div>
+			</div>
+			<!-- </div> -->
+			<br />
+			<div class="row">
+				<div class="col">
+					<div class="card bg-white" style="width: 12rem;">
+						<a href="https://wax.atomichub.io/market?collection_name=farmersworld&schema_name=tools&template_id=203891&order=asc&sort=price&symbol=WAX" target="_blank"><img src="img/me.png" class="card-img-top" alt="Chain Saw"></a>
+						<div class="card-body">
+							<h6 class="card-title">Mining Excavator</h6>
+							<font size="+1"><b>
+									<p class="badge rounded-pill bg-success">ROI : <span id="roi-me">?</span></p>
+								</b></font>
+							<font size="-1">
+								<p class="card-text">Ah. : <span id="tool-me">ไม่มีขาย</span><span id="tool-me-thb"></span><br />Craft : <span id="tool-me-cf"></span><span id="tool-me-cf-thb"></span></p>
+							</font>
+							<font size="-1">
+								<p class="card-text"><span id="profit-me"></span><span id="profit-me-thb"></span></p>
+							</font>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<footer class="mt-auto">
+			<p>&copy; 2022</p>
+			<!--  <center><script type='text/javascript' src='https://www.siamecohost.com/member/gcounter/graphcount.php?page=libra-mine.com&style=02&maxdigits=5'></script></center> > -->
+		</footer>
+
+		<!-- You must load 'dark-mode-switch.js' at the foot of the page -->
+		<script src="js/dark-mode-switch.min.js"></script>
+		<script>
+    $(document).ready(function() {
+        $(".status").each(function(){
+            var value = parseInt ( $( this).html() );
+            if (value < 0){
+				$(this).css('color', 'white');
+			} else {
+				$(this).css('color', '#dc3545');
+			}
+        });
+		        $(".status1").each(function(){
+            var value1 = parseInt ( $( this).html() );
+            if (value1 < 0){
+				$(this).css('color', 'white');
+			} else {
+				$(this).css('color', '#dc3545');
+			}
+        });
+    });
+</script>
+	</div>
+</body>
+
+</html>
