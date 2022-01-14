@@ -92,8 +92,9 @@
 			//document.getElementById("revenue-barley").innerHTML = (toolbarley_cf*60).toFixed(2) + " ￦ | "
 			//document.getElementById("revenue-barley-thb").innerHTML = (toolbarley_cf *60 * wax).toFixed(0).toLocaleString() + " B."			
 
-			document.getElementById("profit-barley").innerHTML =  ((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-barley-thb").innerHTML = ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("profit-barley").innerHTML =  (((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*0.8).toFixed(0) + " ￦ | "
+			document.getElementById("profit-barley-thb").innerHTML = (((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax)*0.35).toFixed(0).toLocaleString() + " B."
+			document.getElementById("profit-barley-thb1").innerHTML = (((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax)*0.35).toFixed(0).toLocaleString() + " - " + ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax).toFixed(0).toLocaleString() + " B."
 			
 			var toolcorn_cf = (fwg * 60)
 			document.getElementById("tool-corn-cf").innerHTML = toolcorn_cf.toFixed(0) + " ￦ | "
@@ -102,54 +103,58 @@
 			var toolfb_cf = (fww * 19200 + fwg * 3200)
 			document.getElementById("tool-fb-cf").innerHTML = toolfb_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fb-cf-thb").innerHTML = (toolfb_cf * wax).toLocaleString() + " B."
-			document.getElementById("profit-fb").innerHTML = "Daily Profit : " + ((80*24*fwf)-(153.6*fwg)).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fb").innerHTML = "กำไรต่อวัน : " + ((80*24*fwf)-(153.6*fwg)).toFixed(0) + " ￦ | "
 			document.getElementById("profit-fb-thb").innerHTML = (((80*24*fwf)-(153.6*fwg))*wax).toFixed(0) + " B."
 */	
 			var toolfb_cf = (fww * 19200 + fwg * 3200)
 			document.getElementById("tool-fb-cf").innerHTML = toolfb_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fb-cf-thb").innerHTML = (toolfb_cf * wax).toLocaleString() + " B."
-			document.getElementById("profit-fb").innerHTML = "Daily Profit : " + ((80*24*fwf)-(153.6*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fb-thb").innerHTML = (((80*24*fwf)-(153.6*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("profit-fb").innerHTML = "กำไรต่อวัน : " + (((80*24*fwf)-(153.6*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fb-thb").innerHTML = ((((80*24*fwf)-(153.6*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolfn_cf = (fww * 4800 + fwg * 800)
 			document.getElementById("tool-fn-cf").innerHTML = toolfn_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fn-cf-thb").innerHTML = (toolfn_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-fn").innerHTML = "Daily Profit : " + ((20*24*fwf)-(96*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fn-thb").innerHTML = (((20*24*fwf)-(96*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("profit-fn").innerHTML = "กำไรต่อวัน : " + (((20*24*fwf)-(96*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fn-thb").innerHTML = ((((20*24*fwf)-(96*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolfr_cf = (fww * 1200 + fwg * 200)
 			document.getElementById("tool-fr-cf").innerHTML = toolfr_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fr-cf-thb").innerHTML = (toolfr_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-fr").innerHTML = "Daily Profit : " + ((5*24*fwf)-(24*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fr-thb").innerHTML = (((5*24*fwf)-(24*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("profit-fr").innerHTML = "กำไรต่อวัน : " + (((5*24*fwf)-(24*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fr-thb").innerHTML = ((((5*24*fwf)-(24*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolcs_cf = (fww * 21600 + fwg * 3600)
 			document.getElementById("tool-cs-cf").innerHTML = toolcs_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-cs-cf-thb").innerHTML = (toolcs_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-cs").innerHTML = "Daily Profit : " + ((54*24*fww)-((216*fwg)+(288*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-cs-thb").innerHTML = (((54*24*fww)-((216*fwg)+(288*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-cs").innerHTML = "กำไรต่อวัน : " + (((54*24*fww)-((216*fwg)+(288*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-cs-thb").innerHTML = ((((54*24*fww)-((216*fwg)+(288*fwf)))*wax)*0.95).toFixed(0) + " B."
 			var tools_cf = (fww * 7200 + fwg * 1200)
 			document.getElementById("tool-s-cf").innerHTML = tools_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-s-cf-thb").innerHTML = (tools_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-s").innerHTML = "Daily Profit : " + ((17*24*fww)-((72*fwg)+(144*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-s-thb").innerHTML = (((17*24*fww)-((72*fwg)+(144*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-s").innerHTML = "กำไรต่อวัน : " + (((17*24*fww)-((72*fwg)+(144*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-s-thb").innerHTML = ((((17*24*fww)-((72*fwg)+(144*fwf)))*wax)*0.95).toFixed(0) + " B."
+			
 			var toola_cf = (fww * 2400 + fwg * 400)
 			document.getElementById("tool-a-cf").innerHTML = toola_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-a-cf-thb").innerHTML = (toola_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-a").innerHTML = "Daily Profit : " + ((5*24*fww)-((24*fwg)+(48*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-a-thb").innerHTML = (((5*24*fww)-((24*fwg)+(48*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-a").innerHTML = "กำไรต่อวัน : " + (((5*24*fww)-((24*fwg)+(48*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-a-thb").innerHTML = ((((5*24*fww)-((24*fwg)+(48*fwf)))*wax)*0.95).toFixed(0) + " B."
 			var toolsa_cf = ((fww * 800) + (fwg * 135))
 			document.getElementById("tool-sa-cf").innerHTML = toolsa_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-sa-cf-thb").innerHTML = (toolsa_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-sa").innerHTML = "Daily Profit : " + ((1.7*24*fww)-((14.4*fwg)+(24*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-sa-thb").innerHTML = (((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-sa").innerHTML = "กำไรต่อวัน : " + (((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-sa-thb").innerHTML = ((((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*wax)*0.95).toFixed(0) + " B."
 			var toolasa_cf = ((fww * 110) + (fwg * 20))
 			document.getElementById("tool-asa-cf").innerHTML = toolasa_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-asa-cf-thb").innerHTML = (toolasa_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-asa").innerHTML = "Daily Profit : " + ((0.7*12*fww)-((2.4*fwg)+(9.6*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-asa-thb").innerHTML = (((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-asa").innerHTML = "กำไรต่อวัน : " + (((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-asa-thb").innerHTML = ((((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*wax)*0.95).toFixed(0) + " B."
 			var toolme_cf = (fww * 24000 + fwg * 4000)
 			document.getElementById("tool-me-cf").innerHTML = toolme_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-me-cf-thb").innerHTML = (toolme_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-me").innerHTML = "Daily Profit : " + ((100*12*fwg)-((12*fwg)+(319.2*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-me-thb").innerHTML = (((100*12*fwg)-((12*fwg)+(319.2*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-me").innerHTML = "กำไรต่อวัน : " + (((100*12*fwg)-((12*fwg)+(319.2*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-me-thb").innerHTML = ((((100*12*fwg)-((12*fwg)+(319.2*fwf)))*wax)*0.95).toFixed(0) + " B."
 // -------------------------------------------------			
 			$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=298592&collection_name=farmersworld", function(json) {
             var toolplot = (json.data[0].price.amount / 100000000)
@@ -454,8 +459,9 @@
 			//document.getElementById("revenue-barley").innerHTML = (toolbarley_cf*60).toFixed(2) + " ￦ | "
 			//document.getElementById("revenue-barley-thb").innerHTML = (toolbarley_cf *60 * wax).toFixed(0).toLocaleString() + " B."			
 
-			document.getElementById("profit-barley").innerHTML =  ((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-barley-thb").innerHTML = ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("profit-barley").innerHTML =  (((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*0.8).toFixed(0) + " ￦ | "
+			document.getElementById("profit-barley-thb").innerHTML = (((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax)*0.35).toFixed(0).toLocaleString() + " B."
+						document.getElementById("profit-barley-thb1").innerHTML = (((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax)*0.35).toFixed(0).toLocaleString() + " - " + ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax).toFixed(0).toLocaleString() + " B."
 			
 			var toolcorn_cf = (fwg * 60)
 			document.getElementById("tool-corn-cf").innerHTML = toolcorn_cf.toFixed(0) + " ￦ | "
@@ -465,49 +471,56 @@
 //------------------------------			
 			var toolfb_cf = (fww * 19200 + fwg * 3200)
 			document.getElementById("tool-fb-cf").innerHTML = toolfb_cf.toFixed(0) + " ￦ | "
-			document.getElementById("tool-fb-cf-thb").innerHTML = (toolfb_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-fb").innerHTML = "Daily Profit : " + ((80*24*fwf)-(153.6*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fb-thb").innerHTML = (((80*24*fwf)-(153.6*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("tool-fb-cf-thb").innerHTML = (toolfb_cf * wax).toLocaleString() + " B."
+			document.getElementById("profit-fb").innerHTML = "กำไรต่อวัน : " + (((80*24*fwf)-(153.6*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fb-thb").innerHTML = ((((80*24*fwf)-(153.6*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolfn_cf = (fww * 4800 + fwg * 800)
 			document.getElementById("tool-fn-cf").innerHTML = toolfn_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fn-cf-thb").innerHTML = (toolfn_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-fn").innerHTML = "Daily Profit : " + ((20*24*fwf)-(96*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fn-thb").innerHTML = (((20*24*fwf)-(96*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("profit-fn").innerHTML = "กำไรต่อวัน : " + (((20*24*fwf)-(96*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fn-thb").innerHTML = ((((20*24*fwf)-(96*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolfr_cf = (fww * 1200 + fwg * 200)
 			document.getElementById("tool-fr-cf").innerHTML = toolfr_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-fr-cf-thb").innerHTML = (toolfr_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-fr").innerHTML = "Daily Profit : " + ((5*24*fwf)-(24*fwg)).toFixed(0) + " ￦ | "
-			document.getElementById("profit-fr-thb").innerHTML = (((5*24*fwf)-(24*fwg))*wax).toFixed(0) + " B."
+			document.getElementById("profit-fr").innerHTML = "กำไรต่อวัน : " + (((5*24*fwf)-(24*fwg))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-fr-thb").innerHTML = ((((5*24*fwf)-(24*fwg))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolcs_cf = (fww * 21600 + fwg * 3600)
 			document.getElementById("tool-cs-cf").innerHTML = toolcs_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-cs-cf-thb").innerHTML = (toolcs_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-cs").innerHTML = "Daily Profit : " + ((54*24*fww)-((216*fwg)+(288*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-cs-thb").innerHTML = (((54*24*fww)-((216*fwg)+(288*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-cs").innerHTML = "กำไรต่อวัน : " + (((54*24*fww)-((216*fwg)+(288*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-cs-thb").innerHTML = ((((54*24*fww)-((216*fwg)+(288*fwf)))*wax)*0.95).toFixed(0) + " B."
 			var tools_cf = (fww * 7200 + fwg * 1200)
 			document.getElementById("tool-s-cf").innerHTML = tools_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-s-cf-thb").innerHTML = (tools_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-s").innerHTML = "Daily Profit : " + ((17*24*fww)-((72*fwg)+(144*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-s-thb").innerHTML = (((17*24*fww)-((72*fwg)+(144*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-s").innerHTML = "กำไรต่อวัน : " + (((17*24*fww)-((72*fwg)+(144*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-s-thb").innerHTML = ((((17*24*fww)-((72*fwg)+(144*fwf)))*wax)*0.95).toFixed(0) + " B."
+			
 			var toola_cf = (fww * 2400 + fwg * 400)
 			document.getElementById("tool-a-cf").innerHTML = toola_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-a-cf-thb").innerHTML = (toola_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-a").innerHTML = "Daily Profit : " + ((5*24*fww)-((24*fwg)+(48*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-a-thb").innerHTML = (((5*24*fww)-((24*fwg)+(48*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-a").innerHTML = "กำไรต่อวัน : " + (((5*24*fww)-((24*fwg)+(48*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-a-thb").innerHTML = ((((5*24*fww)-((24*fwg)+(48*fwf)))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolsa_cf = ((fww * 800) + (fwg * 135))
 			document.getElementById("tool-sa-cf").innerHTML = toolsa_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-sa-cf-thb").innerHTML = (toolsa_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-sa").innerHTML = "Daily Profit : " + ((1.7*24*fww)-((14.4*fwg)+(24*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-sa-thb").innerHTML = (((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-sa").innerHTML = "กำไรต่อวัน : " + (((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-sa-thb").innerHTML = ((((1.7*24*fww)-((14.4*fwg)+(24*fwf)))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolasa_cf = ((fww * 110) + (fwg * 20))
 			document.getElementById("tool-asa-cf").innerHTML = toolasa_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-asa-cf-thb").innerHTML = (toolasa_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-asa").innerHTML = "Daily Profit : " + ((0.7*12*fww)-((2.4*fwg)+(9.6*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-asa-thb").innerHTML = (((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-asa").innerHTML = "กำไรต่อวัน : " + (((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-asa-thb").innerHTML = ((((0.7*12*fww)-((2.4*fwg)+(9.6*fwf)))*wax)*0.95).toFixed(0) + " B."
+			
 			var toolme_cf = (fww * 24000 + fwg * 4000)
 			document.getElementById("tool-me-cf").innerHTML = toolme_cf.toFixed(0) + " ￦ | "
 			document.getElementById("tool-me-cf-thb").innerHTML = (toolme_cf * wax).toFixed(0) + " B."
-			document.getElementById("profit-me").innerHTML = "Daily Profit : " + ((100*12*fwg)-((12*fwg)+(319.2*fwf))).toFixed(0) + " ￦ | "
-			document.getElementById("profit-me-thb").innerHTML = (((100*12*fwg)-((12*fwg)+(319.2*fwf)))*wax).toFixed(0) + " B."
+			document.getElementById("profit-me").innerHTML = "กำไรต่อวัน : " + (((100*12*fwg)-((12*fwg)+(319.2*fwf)))*0.95).toFixed(0) + " ￦ | "
+			document.getElementById("profit-me-thb").innerHTML = ((((100*12*fwg)-((12*fwg)+(319.2*fwf)))*wax)*0.95).toFixed(0) + " B."
 			
 			$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=298592&collection_name=farmersworld", function(json) {
             var toolplot = (json.data[0].price.amount / 100000000)
