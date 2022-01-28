@@ -41,9 +41,18 @@
 		
 		$.getJSON("https://wax.alcor.exchange/api/markets", function(json) {
             var fix = json
-            var fww = json[64].last_price.toFixed(3)
-			var fwf = json[63].last_price.toFixed(3)
-			var fwg = json[62].last_price.toFixed(3)
+            var fww = json[97].last_price.toFixed(3)
+			var fwf = json[98].last_price.toFixed(3)
+			var fwg = json[99].last_price.toFixed(3)
+			
+			var fww_percent = json[97].change24.toFixed(1)
+			var fwf_percent = json[98].change24.toFixed(1)
+			var fwg_percent = json[99].change24.toFixed(1)
+
+			var fww_percent1 = json[97].changeWeek.toFixed(1)
+			var fwf_percent1 = json[98].changeWeek.toFixed(1)
+			var fwg_percent1 = json[99].changeWeek.toFixed(1)
+			
             document.getElementById("fww").innerHTML = fww
 			document.getElementById("fwf").innerHTML = fwf
 			document.getElementById("fwg").innerHTML = fwg
@@ -53,12 +62,15 @@
 			document.getElementById("baht-fwf").innerHTML = (fwf*wax).toFixed(3)
 			document.getElementById("baht-fwg").innerHTML = (fwg*wax).toFixed(3)
 			
-			let wax1 = document.getElementById('usd').innerHTML
-			document.getElementById("usd-fww").innerHTML = (fww*wax1).toFixed(3)
-			document.getElementById("usd-fwf").innerHTML = (fwf*wax1).toFixed(3)
-			document.getElementById("usd-fwg").innerHTML = (fwg*wax1).toFixed(3)
+//			let wax1 = document.getElementById('usd').innerHTML
+			document.getElementById("usd-fww").innerHTML = fww_percent + " %" 
+			document.getElementById("usd-fwf").innerHTML = fwf_percent + " %"
+			document.getElementById("usd-fwg").innerHTML = fwg_percent + " %"
+			document.getElementById("usd-fww1").innerHTML = fww_percent1 + " %" 
+			document.getElementById("usd-fwf1").innerHTML = fwf_percent1 + " %"
+			document.getElementById("usd-fwg1").innerHTML = fwg_percent1 + " %"
 			
-			//console.log(fix)
+			console.log(fix)
 
 			var delayInMilliseconds = 2000;
 			setTimeout(function() {
@@ -73,21 +85,21 @@
 			
 			var toolbarleyseed_cf = (fwg * 50) // = wax
 			document.getElementById("tool-barleyseed-cf").innerHTML = toolbarleyseed_cf.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barleyseed-cf-thb").innerHTML = (toolbarleyseed_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-barleyseed-cf-thb").innerHTML = (toolbarleyseed_cf * wax).toFixed(2).toLocaleString() + " B."
 			
 			var toolcornseed_cf = (fwg * 75)
-			document.getElementById("tool-cornseed-cf").innerHTML = toolcornseed_cf.toFixed(0) + " ￦ | "
-			document.getElementById("tool-cornseed-cf-thb").innerHTML = (toolcornseed_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-cornseed-cf").innerHTML = toolcornseed_cf.toFixed(2) + " ￦ | "
+			document.getElementById("tool-cornseed-cf-thb").innerHTML = (toolcornseed_cf * wax).toFixed(2).toLocaleString() + " B."
 			
 			var toolbarley_cf = (fwg * 40)
 			document.getElementById("tool-barley-cf").innerHTML = toolbarley_cf.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barley-cf-thb").innerHTML = (toolbarley_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-barley-cf-thb").innerHTML = (toolbarley_cf * wax).toFixed(2).toLocaleString() + " B."
 
-			document.getElementById("cost-barley").innerHTML = ((toolbarleyseed_cf*8)+(fwf*2016)).toFixed(0) + " ￦ | "
-			document.getElementById("cost-barley-thb").innerHTML = (((toolbarleyseed_cf*8)+(fwf*2016))*wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("cost-barley").innerHTML = ((toolbarleyseed_cf*8)+(fwf*2016)).toFixed(2) + " ￦ | "
+			document.getElementById("cost-barley-thb").innerHTML = (((toolbarleyseed_cf*8)+(fwf*2016))*wax).toFixed(2).toLocaleString() + " B."
 			
 			document.getElementById("revenue-barley").innerHTML = (38*fwg*60).toFixed(2) + " ￦ | "
-			document.getElementById("revenue-barley-thb").innerHTML = (38*fwg*60 * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("revenue-barley-thb").innerHTML = (38*fwg*60 * wax).toFixed(2).toLocaleString() + " B."
 			//38*fwg*60
 			//document.getElementById("revenue-barley").innerHTML = (toolbarley_cf*60).toFixed(2) + " ￦ | "
 			//document.getElementById("revenue-barley-thb").innerHTML = (toolbarley_cf *60 * wax).toFixed(0).toLocaleString() + " B."			
@@ -167,8 +179,8 @@
 				// document.getElementById("roi-plot").innerHTML = ((toolplot_cf * wax)/(((80*24*fwf)-(153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-plot").innerHTML = toolplot.toFixed(0) + " ￦ | "
-			document.getElementById("tool-plot-thb").innerHTML = toolplot_thb.toFixed(0) + " B."
+            document.getElementById("tool-plot").innerHTML = toolplot.toFixed(2) + " ￦ | "
+			document.getElementById("tool-plot-thb").innerHTML = toolplot_thb.toFixed(2) + " B."
         });
 		
 		$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=298595&collection_name=farmersworld", function(json) {
@@ -183,7 +195,7 @@
 			// }
 			// }, delayInMilliseconds);
             document.getElementById("tool-barleyseed").innerHTML = toolbarleyseed.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barleyseed-thb").innerHTML = toolbarleyseed_thb.toFixed(0) + " B."
+			document.getElementById("tool-barleyseed-thb").innerHTML = toolbarleyseed_thb.toFixed(2) + " B."
         });
 		
 		
@@ -198,8 +210,8 @@
 				// document.getElementById("roi-cornseed").innerHTML = ((toolcornseed_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-cornseed").innerHTML = toolcornseed.toFixed(0) + " ￦ | "
-			document.getElementById("tool-cornseed-thb").innerHTML = toolcornseed_thb.toFixed(0) + " B."
+            document.getElementById("tool-cornseed").innerHTML = toolcornseed.toFixed(2) + " ￦ | "
+			document.getElementById("tool-cornseed-thb").innerHTML = toolcornseed_thb.toFixed(2) + " B."
         });
 		
 		
@@ -215,7 +227,7 @@
 			// }
 			// }, delayInMilliseconds);
             document.getElementById("tool-barley").innerHTML = toolbarley.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barley-thb").innerHTML = toolbarley_thb.toFixed(0) + " B."
+			document.getElementById("tool-barley-thb").innerHTML = toolbarley_thb.toFixed(2) + " B."
         });
 		
 		$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=318607&collection_name=farmersworld", function(json) {
@@ -229,8 +241,8 @@
 				// document.getElementById("roi-corn").innerHTML = ((toolcorn_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-corn").innerHTML = toolcorn.toFixed(0) + " ￦ | "
-			document.getElementById("tool-corn-thb").innerHTML = toolcorn_thb.toFixed(0) + " B."
+            document.getElementById("tool-corn").innerHTML = toolcorn.toFixed(2) + " ￦ | "
+			document.getElementById("tool-corn-thb").innerHTML = toolcorn_thb.toFixed(2) + " B."
         });
 
 
@@ -410,9 +422,9 @@
 			
 		$.getJSON("https://wax.alcor.exchange/api/markets", function(json) {
             var fix = json
-            var fww = json[64].last_price.toFixed(3)
-			var fwf = json[63].last_price.toFixed(3)
-			var fwg = json[62].last_price.toFixed(3)
+            var fww = json[97].last_price.toFixed(3)
+			var fwf = json[98].last_price.toFixed(3)
+			var fwg = json[99].last_price.toFixed(3)
             document.getElementById("fww").innerHTML = fww
 			document.getElementById("fwf").innerHTML = fwf
 			document.getElementById("fwg").innerHTML = fwg
@@ -422,11 +434,7 @@
 			document.getElementById("baht-fwf").innerHTML = (fwf*wax).toFixed(3)
 			document.getElementById("baht-fwg").innerHTML = (fwg*wax).toFixed(3)
 			
-			let wax1 = document.getElementById('usd').innerHTML
-			document.getElementById("usd-fww").innerHTML = (fww*wax1).toFixed(3)
-			document.getElementById("usd-fwf").innerHTML = (fwf*wax1).toFixed(3)
-			document.getElementById("usd-fwg").innerHTML = (fwg*wax1).toFixed(3)
-			
+		
 			var delayInMilliseconds = 2000;
 			setTimeout(function() {
 			let wax = document.getElementById('wax').innerHTML
@@ -435,26 +443,26 @@
 			let fwg = document.getElementById('fwg').innerHTML
 			
 			var toolplot_cf = (fww * 200 + fwg * 120)
-			document.getElementById("tool-plot-cf").innerHTML = toolplot_cf.toFixed(0) + " ￦ | "
-			document.getElementById("tool-plot-cf-thb").innerHTML = (toolplot_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-plot-cf").innerHTML = toolplot_cf.toFixed(2) + " ￦ | "
+			document.getElementById("tool-plot-cf-thb").innerHTML = (toolplot_cf * wax).toFixed(2).toLocaleString() + " B."
 			
 			var toolbarleyseed_cf = (fwg * 50)
 			document.getElementById("tool-barleyseed-cf").innerHTML = toolbarleyseed_cf.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barleyseed-cf-thb").innerHTML = (toolbarleyseed_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-barleyseed-cf-thb").innerHTML = (toolbarleyseed_cf * wax).toFixed(2).toLocaleString() + " B."
 			
 			var toolcornseed_cf = (fwg * 75)
-			document.getElementById("tool-cornseed-cf").innerHTML = toolcornseed_cf.toFixed(0) + " ￦ | "
-			document.getElementById("tool-cornseed-cf-thb").innerHTML = (toolcornseed_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-cornseed-cf").innerHTML = toolcornseed_cf.toFixed(2) + " ￦ | "
+			document.getElementById("tool-cornseed-cf-thb").innerHTML = (toolcornseed_cf * wax).toFixed(2).toLocaleString() + " B."
 			
 			var toolbarley_cf = (fwg * 40)
 			document.getElementById("tool-barley-cf").innerHTML = toolbarley_cf.toFixed(2) + " ￦ | "
-			document.getElementById("tool-barley-cf-thb").innerHTML = (toolbarley_cf * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("tool-barley-cf-thb").innerHTML = (toolbarley_cf * wax).toFixed(2).toLocaleString() + " B."
 
-			document.getElementById("cost-barley").innerHTML = ((toolbarleyseed_cf*8)+(fwf*2016)).toFixed(0) + " ￦ | "
-			document.getElementById("cost-barley-thb").innerHTML = (((toolbarleyseed_cf*8)+(fwf*2016))*wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("cost-barley").innerHTML = ((toolbarleyseed_cf*8)+(fwf*2016)).toFixed(2) + " ￦ | "
+			document.getElementById("cost-barley-thb").innerHTML = (((toolbarleyseed_cf*8)+(fwf*2016))*wax).toFixed(2).toLocaleString() + " B."
 			
 			document.getElementById("revenue-barley").innerHTML = (38*fwg*60).toFixed(2) + " ￦ | "
-			document.getElementById("revenue-barley-thb").innerHTML = (38*fwg*60 * wax).toFixed(0).toLocaleString() + " B."
+			document.getElementById("revenue-barley-thb").innerHTML = (38*fwg*60 * wax).toFixed(2).toLocaleString() + " B."
 			//38*fwg*60
 			//document.getElementById("revenue-barley").innerHTML = (toolbarley_cf*60).toFixed(2) + " ￦ | "
 			//document.getElementById("revenue-barley-thb").innerHTML = (toolbarley_cf *60 * wax).toFixed(0).toLocaleString() + " B."			
@@ -533,8 +541,8 @@
 				// document.getElementById("roi-plot").innerHTML = ((toolplot_cf * wax)/(((80*24*fwf)-(153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-plot").innerHTML = toolplot.toFixed(0) + " ￦ | "
-			document.getElementById("tool-plot-thb").innerHTML = toolplot_thb.toFixed(0) + " B."
+            document.getElementById("tool-plot").innerHTML = toolplot.toFixed(2) + " ￦ | "
+			document.getElementById("tool-plot-thb").innerHTML = toolplot_thb.toFixed(2) + " B."
         });
 		
 		$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=298595&collection_name=farmersworld", function(json) {
@@ -548,8 +556,8 @@
 				// document.getElementById("roi-barleyseed").innerHTML = ((toolbarleyseed_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-barleyseed").innerHTML = toolbarleyseed.toFixed(0) + " ￦ | "
-			document.getElementById("tool-barleyseed-thb").innerHTML = toolbarleyseed_thb.toFixed(0) + " B."
+            document.getElementById("tool-barleyseed").innerHTML = toolbarleyseed.toFixed(2) + " ￦ | "
+			document.getElementById("tool-barleyseed-thb").innerHTML = toolbarleyseed_thb.toFixed(2) + " B."
         });
 		
 		$.getJSON("https://wax.api.atomicassets.io/atomicmarket/v1/sales?limit=1&order=asc&sort=price&state=1&template_id=318606&collection_name=farmersworld", function(json) {
@@ -563,11 +571,11 @@
 				// document.getElementById("roi-barley").innerHTML = ((toolbarley_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-barley").innerHTML = toolbarley.toFixed(0) + " ￦ | "
-			document.getElementById("tool-barley-thb").innerHTML = toolbarley_thb.toFixed(0) + " B."
+            document.getElementById("tool-barley").innerHTML = toolbarley.toFixed(2) + " ￦ | "
+			document.getElementById("tool-barley-thb").innerHTML = toolbarley_thb.toFixed(2) + " B."
 			
-			var totalallprofit = ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax) *allprofit
-			document.getElementById("all-profit-thb").innerHTML = totalallprofit.toLocaleString() + " B."
+			//var totalallprofit = ((((toolbarley_cf*60) - ((toolbarleyseed_cf*8)+(fwf*2016)))*wax )-12*wax)
+			//document.getElementById("all-profit-thb").innerHTML = totalallprofit.toLocaleString() + " B."
 			
         });
 		
@@ -582,8 +590,8 @@
 				// document.getElementById("roi-cornseed").innerHTML = ((toolcornseed_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-cornseed").innerHTML = toolcornseed.toFixed(0) + " ￦ | "
-			document.getElementById("tool-cornseed-thb").innerHTML = toolcornseed_thb.toFixed(0) + " B."
+            document.getElementById("tool-cornseed").innerHTML = toolcornseed.toFixed(2) + " ￦ | "
+			document.getElementById("tool-cornseed-thb").innerHTML = toolcornseed_thb.toFixed(2) + " B."
         });
 		
 		
@@ -598,8 +606,8 @@
 				// document.getElementById("roi-corn").innerHTML = ((toolcorn_cf * wax)/(((153.6*fwg))*wax)).toFixed(0) + " วัน"
 			// }
 			// }, delayInMilliseconds);
-            document.getElementById("tool-corn").innerHTML = toolcorn.toFixed(0) + " ￦ | "
-			document.getElementById("tool-corn-thb").innerHTML = toolcorn_thb.toFixed(0) + " B."
+            document.getElementById("tool-corn").innerHTML = toolcorn.toFixed(2) + " ￦ | "
+			document.getElementById("tool-corn-thb").innerHTML = toolcorn_thb.toFixed(2) + " B."
         });
 		
 //----------------------------
